@@ -2,7 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Pagination from "./Pagination";
-import { it } from "vitest";
+
+vi.mock("../utils", () => ({
+  range: () => [1, 2, 3, 4, 5],
+}));
 
 describe("Pagination", () => {
   ///
