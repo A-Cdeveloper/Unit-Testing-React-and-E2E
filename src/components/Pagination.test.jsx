@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Pagination from "./Pagination";
+import * as utils from "../utils";
+import { expect } from "vitest";
 
 vi.mock("../utils", () => ({
   range: () => [1, 2, 3, 4, 5],
@@ -40,4 +42,10 @@ describe("Pagination", () => {
       expect(selectPage).toHaveBeenCalledWith(item.textContent);
     });
   });
+
+  //   it("spy on utils", () => {
+  //     vi.spyOn(utils, "range");
+  //     render(<Pagination total={50} limit={10} currentPage={1} />);
+  //     expect(utils.range).toHaveBeenCalledWith(1, 6);
+  //   });
 });
