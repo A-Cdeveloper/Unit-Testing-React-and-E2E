@@ -6,14 +6,14 @@ const Tags = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log("tags:", tags);
+  // console.log("tags:", tags);
   ///
   useEffect(() => {
     setLoading(true);
 
     try {
       axios.get("http://localhost:3004/tags").then((response) => {
-        console.log("response:", response.data);
+        // console.log("response:", response.data);
         setTags(response.data);
       });
     } catch (error) {

@@ -33,7 +33,6 @@ describe("Pagination", () => {
         selectPage={selectPageMockFn}
       />
     );
-    screen.debug();
 
     const listItems = screen.getAllByTestId("page-container");
     const user = userEvent.setup();
