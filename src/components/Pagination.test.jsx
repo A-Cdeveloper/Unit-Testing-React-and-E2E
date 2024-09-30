@@ -5,9 +5,9 @@ import Pagination from "./Pagination";
 import * as utils from "../utils";
 import { expect } from "vitest";
 
-vi.mock("../utils", () => ({
-  range: () => [1, 2, 3, 4, 5],
-}));
+// vi.mock("../utils", () => ({
+//   range: () => [1, 2, 3, 4, 5],
+// }));
 
 describe("Pagination", () => {
   ///
@@ -38,7 +38,7 @@ describe("Pagination", () => {
     const listItems = screen.getAllByTestId("page-container");
     const user = userEvent.setup();
     listItems.forEach(async (item) => {
-      await user.click();
+      await user.click(item);
       expect(selectPage).toHaveBeenCalledWith(item.textContent);
     });
   });
