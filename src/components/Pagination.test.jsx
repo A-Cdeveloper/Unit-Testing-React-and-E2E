@@ -23,23 +23,23 @@ describe("Pagination", () => {
   });
   ////
 
-  it("should select page correctly", () => {
-    const selectPageMockFn = vi.fn();
+  it("should select page correctly", async () => {
+    const selectPageFn = vi.fn();
+    const user = userEvent.setup();
+
     render(
       <Pagination
         total={50}
         limit={10}
         currentPage={1}
-        selectPage={selectPageMockFn}
+        selectPage={selectPageFn}
       />
     );
 
     const listItems = screen.getAllByTestId("page-container");
-    const user = userEvent.setup();
-    listItems.forEach(async (item) => {
-      await user.click(item);
-      expect(selectPage).toHaveBeenCalledWith(item.textContent);
-    });
+
+    await user.click(listItems[1]);
+    expect(selectPageFn).toHaveBeenCalledWith(2);
   });
 
   //   it("spy on utils", () => {
