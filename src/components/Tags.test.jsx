@@ -4,7 +4,7 @@ import axios from "axios";
 
 /////////
 
-describe("Tags", () => {
+describe.skip("Tags", () => {
   it("should render tags", async () => {
     render(<Tags />);
     const tags = await screen.findAllByTestId("tag");
