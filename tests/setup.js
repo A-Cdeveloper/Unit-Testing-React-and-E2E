@@ -10,8 +10,11 @@ beforeAll(() => {
 beforeEach(() => {
   server.resetHandlers();
 });
-afterAll(() => {
-  server.close();
+
+afterEach(() => {
   cleanup();
   vi.clearAllMocks();
+});
+afterAll(() => {
+  server.close();
 });
